@@ -1,83 +1,105 @@
-from colorama import Fore, Style #Importacion de la libreria colorama para estilos en la termianl.
-
-#primeras tres preguntas Santiago De Leon
+import os
+from colorama import Fore, init
 preguntas = [
     {
-        "pregunta": "¿Cuál es la capital de brasil?",
+        "pregunta": "¿🇨‌ 🇺‌ 🇦 ‌🇱‌  🇪‌ 🇸‌  🇱‌ 🇦‌  🇨‌ 🇦‌ 🇵‌ 🇮‌ 🇹‌ 🇦‌ 🇱‌  🇩‌ 🇪 ‌ 🇨 ‌🇴‌ 🇱‌ 🇴‌ 🇲‌ 🇧 ‌🇮‌ 🇦 ‌?",
+        "opciones": ["Barranquilla", "Bogota", "Santa Marta", "Medellín"],
+        "respuesta_correcta": 2
+    },
+    {
+        "pregunta": "  ¿🇨‌ 🇺‌ 🇦‌ 🇳‌ 🇹‌ 🇴‌  🇪‌ 🇸‌  5  🇽‌  6? ",
+        "opciones": ["187187", "25", "11", "30"],
+        "respuesta_correcta": 4
+    },
+    {
+        "pregunta": "¿🇨‌ 🇺‌ 🇦‌ 🇱‌  🇪‌ 🇸‌  🇱‌ 🇦‌  🇨‌ 🇦 ‌🇵‌ 🇮‌ 🇹‌ 🇦‌ 🇱‌  🇩‌ 🇪‌  🇧‌ 🇷 ‌🇦‌ 🇸‌ 🇮‌ 🇱 ‌?",
         "opciones": ["Rio de Janeiro", "Sao paulo", "Brasilia", "Manaos"],
         "respuesta_correcta": 3
     },
+  
     {
-        "pregunta": "¿Cuánto es 5 x 6?",
-        "opciones": ["16", "25", "11", "30"],
-        "respuesta_correcta": 4
-    },
-    {
-        "pregunta": "¿Quien descubrio America?",
+        "pregunta": "¿🇶‌ 🇺 ‌🇮‌ 🇪 ‌🇳‌  🇩 ‌🇪‌ 🇸‌ 🇨‌ 🇺 🇧‌ 🇷‌ 🇮 ‌🇴‌  🇦‌ 🇲‌ 🇪 ‌🇷‌ 🇮‌ 🇨‌ 🇦 ‌?",
         "opciones": ["Simon Bolivar", "Cristobal Colon", "La Policarpa", "Juan Manuel Santos"],
         "respuesta_correcta": 2
     },
-    
-    # agregadas las ultimas 3 preguntas
-    # Ingeniero Forlan
-        {
-        "pregunta": "¿Quien fue el responsable de la muerte de Pablo Escobar?",
-        "opciones": ["La Guerrilla de las Farc", "El cartel de Cali", "La DEA", "El bloque de busqueda"],
+  
+  {
+        "pregunta": "¿🇶‌ 🇺‌ 🇮‌ 🇪‌ 🇳‌  🇫 ‌🇺‌ 🇪‌  🇪‌ 🇱 ‌ 🇷‌ 🇪‌ 🇸 ‌🇵‌ 🇴‌ 🇳‌ 🇸 ‌🇦‌ 🇧‌ 🇱‌ 🇪‌  🇩‌ 🇪‌  🇱‌ 🇦‌  🇲‌ 🇺‌ 🇪‌ 🇷‌ 🇹 ‌🇪‌  🇩‌ 🇪‌  🇵‌ 🇦 ‌🇧‌ 🇱 ‌🇴‌  🇪‌ 🇸‌ 🇨‌ 🇴‌ 🇧‌ 🇦 ‌🇷 ‌?",
+        "opciones": ["La Guerrilla de las Farc", "El cartel de Cali", "La DEA", "El bloque de busqueda"], 
         "respuesta_correcta": 4
     },
     {
-        "pregunta": "¿De dónde es el sombrero vueltiao?",
+        "pregunta": "¿🇩‌ 🇪‌  🇩‌ 🇴‌ 🇳‌ 🇩‌ 🇪‌  🇪‌ 🇸‌  🇪‌ 🇱‌  🇸‌ 🇴 ‌🇲‌ 🇧 ‌🇷‌ 🇪‌ 🇷‌ 🇴‌  🇻‌ 🇺‌ 🇪‌ 🇱‌ 🇹 ‌🇮‌ 🇦‌ 🇴 ‌?",
         "opciones": ["La Guajira", "Magdalena", "Sucre", "Cordoba"],
         "respuesta_correcta": 4
     },
      {
-        "pregunta": "¿Cuál es el río más largo que pasa por Colombia'?",
+        "pregunta": "¿🇨‌ 🇺‌ 🇦‌ 🇱‌  🇪‌ 🇸‌  🇪 ‌🇱 ‌ 🇷‌ 🇮‌ 🇴‌  🇲‌ 🇦‌ 🇸‌  🇱‌ 🇦 ‌🇷‌ 🇬‌ 🇴‌  🇶‌ 🇺‌ 🇪‌  🇵 ‌🇦 ‌🇸‌ 🇦‌  🇵 ‌🇴 ‌🇷‌  🇨‌ 🇴‌ 🇱 ‌🇴‌ 🇲‌ 🇧 ‌🇮‌ 🇦 ‌?",
         "opciones": ["Cauca", "Sinu", "Amazonas", "Magdalena"],
         "respuesta_correcta": 3
     }
 ]
 
-# tomar respuestas y calcular el promedio del usuario, mostras en consola el resumen de respuestas del usuario 
-# (respestas incorrectas y correctas)
-# Sebastian Rodelo
-
 respuestas_usuario = []
 correctas = 0
 
-print(Fore.CYAN + Style.BRIGHT + "\n========== PREGUNTAS Y RESPUESTAS COSTENAS JUNIOR TU PAPA==========\n")
+def limpiar_pantalla():
+    # Limpia la pantalla de la consola.
+    os.system('cls' if os.name == 'nt' else 'clear')
 
+def mostrar_pregunta(numero_pregunta, pregunta):
+    # Muestra la pregunta y sus opciones.
+    print(Fore.YELLOW + f"\nPregunta {numero_pregunta}: {pregunta['pregunta']}")
+    for i, opcion in enumerate(pregunta["opciones"], start=1):
+        print(Fore.BLUE + f"  {i}. {opcion}")
 
-# append: agrega elementos a la lista
-# indice: guarda la opcion en el for
-# enumerate: recorre la lista dando el indice y el valor
-# start: hace que se inicialice en 1 y no en 0
-# zip: es una funcion que combina dos o mas listas al mismo tiempo, emparejando los elementos posicion por posicion.
-
-#validacion de respuestas
-for i, pregunta in enumerate(preguntas, start=1):
-    print(Fore.YELLOW + f"Pregunta numero {i}: {pregunta['pregunta']}")
-    for indice, opcion in enumerate(pregunta["opciones"], start=1):
-        print(Fore.BLUE + f"  {indice}. {opcion}")
-    
+def obtener_respuesta():
+    # Obtiene la respuesta del usuario con validación.
     while True:
         try:
-            respuesta = int(input(Fore.WHITE + "Ingrese la respuesta correcta (1-4): "))
-            if respuesta < 1 or respuesta > 4:
-                print(Fore.RED + "Por favor, ingrese un numero entre 1 y 4.")
-                continue
-            break
+            respuesta = int(input(Fore.WHITE + "Tu respuesta (1-4): "))
+            if 1 <= respuesta <= 4:
+                return respuesta
+            else:
+                print(Fore.RED + "Por favor, ingresa un número entre 1 y 4.")
         except ValueError:
-            print(Fore.RED + "Entrada inválida. Debe ingresar un numero.")
-    
-    respuestas_usuario.append(respuesta)
-    
-    if respuesta == pregunta["respuesta_correcta"]:
-        print(Fore.GREEN + "¡Respuesta correcta!\n")
-        correctas += 1
-    else:
-        print(Fore.RED + f"Respuesta incorrecta. La correcta era: {pregunta['respuesta_correcta']}. {pregunta['opciones'][pregunta['respuesta_correcta'] - 1]}\n")
+            print(Fore.RED + "Entrada inválida. Debes ingresar una entrada valida.")
 
-# Mostrar resumen
+def mostrar_resultado(pregunta, respuesta_usuario, respuesta_correcta):
+    # "Muestra si la respuesta fue correcta o incorrecta.
+    if respuesta_usuario == respuesta_correcta:
+        print(Fore.GREEN + "¡Correcto!")
+    else:
+        print(Fore.RED + f"Incorrecto. La respuesta correcta era: {respuesta_correcta}. {pregunta['opciones'][respuesta_correcta - 1]}")
+
+def mostrar_resumen(preguntas, respuestas_usuario):
+    # Muestra el resumen de resultados.
+    print(Fore.LIGHTCYAN_EX + "\n=== Resumen de Resultados ===")
+    for i, (pregunta, respuesta) in enumerate(zip(preguntas, respuestas_usuario), start=1):
+        correcta = pregunta["respuesta_correcta"]
+        print(f"{i}. {pregunta['pregunta']}:", end=" ")
+        if respuesta == correcta:
+            print(f"Correcto ({pregunta['opciones'][respuesta - 1]})")
+        else:
+            print(f"Incorrecto (Tu: {pregunta['opciones'][respuesta - 1]}, Correcta: {pregunta['opciones'][correcta - 1]})")
+
+def calcular_porcentaje(correctas, total_preguntas):
+    # Calcula el porcentaje de respuestas correctas.
+    return (correctas / total_preguntas) * 100
+
+# Inicio del cuestionario
+limpiar_pantalla()
+print("¡🇧‌ 🇮‌ 🇪‌ 🇳‌ 🇻 ‌🇪‌ 🇳‌ 🇮‌ 🇩‌ 🇴‌  🇦‌ 🇱‌  🇨 🇺‌ 🇪 ‌🇸‌ 🇹 🇮‌ 🇴‌ 🇳‌ 🇦‌ 🇷 ‌🇮 ‌🇴 ‌  🇩‌ 🇪‌  🇵 ‌🇷‌ 🇪 ‌🇬 ‌🇺‌ 🇳‌ 🇹‌ 🇦 🇸‌  🇾‌  🇷 🇪‌ 🇸 ‌🇵‌ 🇺‌ 🇪‌ 🇸 🇹 ‌🇦 ‌🇸‌  🇩‌ 🇪‌  🇨‌ 🇺‌ 🇱‌ 🇹‌ 🇺‌ 🇷‌ 🇦‌  🇬 ‌🇪 ‌🇳‌ 🇪 ‌🇷‌ 🇦‌ 🇱 ‌!")
+
+for i, pregunta in enumerate(preguntas, start=1):
+    mostrar_pregunta(i, pregunta)
+    respuesta = obtener_respuesta()
+    respuestas_usuario.append(respuesta)
+    mostrar_resultado(pregunta, respuesta, pregunta["respuesta_correcta"])
+    if respuesta == pregunta["respuesta_correcta"]:
+      correctas +=1
+
+#Mostrar resumen
 print(Fore.MAGENTA + "\n========== RESULTADOS ==========")
 for i, (pregunta, respuesta) in enumerate(zip(preguntas, respuestas_usuario), start=1):
     correcta = pregunta["respuesta_correcta"]
