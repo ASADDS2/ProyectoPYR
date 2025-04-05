@@ -1,22 +1,25 @@
-import os
-from colorama import Fore, init
+import os #Importar os para limpiar la pantalla
+from colorama import Fore #Iniciar colorama para los colores de la interfaz
+
+#interfaz y diseño por Sebastian Arnache
 preguntas = [
+    #preguntas por Santiago de leon
     {
         "pregunta": "¿🇨‌ 🇺‌ 🇦 ‌🇱‌  🇪‌ 🇸‌  🇱‌ 🇦‌  🇨‌ 🇦‌ 🇵‌ 🇮‌ 🇹‌ 🇦‌ 🇱‌  🇩‌ 🇪 ‌ 🇨 ‌🇴‌ 🇱‌ 🇴‌ 🇲‌ 🇧 ‌🇮‌ 🇦 ‌?",
-        "opciones": ["Barranquilla", "Bogota", "Santa Marta", "Medellín"],
-        "respuesta_correcta": 2
+        "opciones": ["Bogota", "Barranquilla", "Santa Marta", "Medellín"],
+        "respuesta_correcta": 1
     },
     {
         "pregunta": "  ¿🇨‌ 🇺‌ 🇦‌ 🇳‌ 🇹‌ 🇴‌  🇪‌ 🇸‌  5  🇽‌  6? ",
-        "opciones": ["187187", "25", "11", "30"],
-        "respuesta_correcta": 4
+        "opciones": ["35", "30", "11", "40"],
+        "respuesta_correcta": 2
     },
     {
         "pregunta": "¿🇨‌ 🇺‌ 🇦‌ 🇱‌  🇪‌ 🇸‌  🇱‌ 🇦‌  🇨‌ 🇦 ‌🇵‌ 🇮‌ 🇹‌ 🇦‌ 🇱‌  🇩‌ 🇪‌  🇧‌ 🇷 ‌🇦‌ 🇸‌ 🇮‌ 🇱 ‌?",
         "opciones": ["Rio de Janeiro", "Sao paulo", "Brasilia", "Manaos"],
         "respuesta_correcta": 3
     },
-  
+    #preguntas por Forlan Ordoñez
     {
         "pregunta": "¿🇶‌ 🇺 ‌🇮‌ 🇪 ‌🇳‌  🇩 ‌🇪‌ 🇸‌ 🇨‌ 🇺 🇧‌ 🇷‌ 🇮 ‌🇴‌  🇦‌ 🇲‌ 🇪 ‌🇷‌ 🇮‌ 🇨‌ 🇦 ‌?",
         "opciones": ["Simon Bolivar", "Cristobal Colon", "La Policarpa", "Juan Manuel Santos"],
@@ -40,8 +43,15 @@ preguntas = [
     }
 ]
 
+#Sebastian rodelo: Validacion de respuestas correctas e incorrectas, resumen de las respuestas del usuario y manejo de errores en las respuestas
 respuestas_usuario = []
 correctas = 0
+# """
+# append: agrega elementos a la lista
+# enumerate: recorre la lista dando el indice y el valor
+# start: hace que se inicialice en 1 y no en 0
+# zip: es una funcion que combina dos o mas listas al mismo tiempo, emparejando los elementos posicion por posicion.
+# """
 
 def limpiar_pantalla():
     # Limpia la pantalla de la consola.
@@ -51,7 +61,7 @@ def mostrar_pregunta(numero_pregunta, pregunta):
     # Muestra la pregunta y sus opciones.
     print(Fore.YELLOW + f"\nPregunta {numero_pregunta}: {pregunta['pregunta']}")
     for i, opcion in enumerate(pregunta["opciones"], start=1):
-        print(Fore.BLUE + f"  {i}. {opcion}")
+        print(Fore.GREEN + f"  {i}. {opcion}")
 
 def obtener_respuesta():
     # Obtiene la respuesta del usuario con validación.
@@ -70,7 +80,7 @@ def mostrar_resultado(pregunta, respuesta_usuario, respuesta_correcta):
     if respuesta_usuario == respuesta_correcta:
         print(Fore.GREEN + "¡Correcto!")
     else:
-        print(Fore.RED + f"Incorrecto. La respuesta correcta era: {respuesta_correcta}. {pregunta['opciones'][respuesta_correcta - 1]}")
+        print(Fore.RED + f"Incorrecto. La respuesta correcta es: {respuesta_correcta}. {pregunta['opciones'][respuesta_correcta - 1]}")
 
 def mostrar_resumen(preguntas, respuestas_usuario):
     # Muestra el resumen de resultados.
